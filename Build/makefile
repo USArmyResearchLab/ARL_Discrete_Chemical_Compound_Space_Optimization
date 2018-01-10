@@ -44,18 +44,9 @@ all: DiscreteCCSOpt
 DiscreteCCSOpt: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	/usr/local/bin/g++ -L/usr/local/lib -o "DiscreteCCSOpt" $(OBJS) $(USER_OBJS) $(LIBS)
+	/opt/local/bin/g++ -L/usr/local/lib -o "DiscreteCCSOpt" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
-
-
-DiscreteCCSOpt.d: $(DOBJS) $(USER_DOBJS)
-	@echo 'Building target: $@'
-	@echo 'Invoking: GCC C++ Linker'
-	/usr/local/bin/g++ -L/usr/local/lib -o "DiscreteCCSOpt" -g $(DOBJS) $(USER_DOBJS) $(LIBS)
-	@echo 'Finished building target: $@'
-	@echo ' '
-
 
 # Other Targets
 clean:

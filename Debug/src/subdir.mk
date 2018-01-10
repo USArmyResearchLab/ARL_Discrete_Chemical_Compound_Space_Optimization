@@ -61,7 +61,7 @@ DOBJS += \
 src/%.o: ../src/%.cc
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	/usr/local/bin/g++ -g -DDEBUG -I/usr/local/include -I/home/berend/projects/BCR_CPP_LA -I/home/berend/projects -I"/home/berend/workspace/DiscreteOptimize/include" -I"/home/berend/workspace/DiscreteOptimize/src" -I"../" -O3 -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	/usr/local/bin/g++ -g -DDEBUG -fpermissive -I/usr/local/include -I/path/to/BCR_CPP_LA -I"../include" -I"../src" -I"../" -O3 -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
