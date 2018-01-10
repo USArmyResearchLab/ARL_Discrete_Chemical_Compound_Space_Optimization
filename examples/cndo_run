@@ -1,0 +1,37 @@
+#!/bin/sh
+# Execution script 
+# geometry optimize in Gaussian and feed to CNDO
+# run cndo
+# read strongest excitation
+# read beta
+# remove extra files
+filename=`basename ${1} .dat`
+echo %chk=$1.chk > $1.com
+cat defaults/header.com >> $1.com
+cat $1.zmat >> $1.com
+echo \* \* F >> $1.com
+echo >> $1.com
+echo --Link1-- >> $1.com
+echo %chk=$1.chk >> $1.com
+cat defaults/footer.com >> $1.com
+g03job $1
+NORMALEXEC=`tail $1.log | grep -o Normal| awk '{print $1}'`
+if [ "$NORMALEXEC" == "Normal" ]; then
+ mv $1.log $1.g03log
+ rm $1.chk
+ awk -f ./logcart.awk $1.g03log > $1.xyz
+ ./xyz_to_CNDO $1.xyz $1.dat 0 1
+ gzip $1.g03log
+ echo ${1} | ../CNDO/cndo > $1.cndo_out
+ ../CNDO/SOSx
+ cp sosstat.out ${1}.sosout
+ gzip $1.log
+ rm -f *.ci
+ rm -f *.mo
+ rm -f *.ple
+ rm -f *.sts
+ (grep "modulus" ${1}.sosout | grep -v Predicted | awk '{print $4}'| tail -1 ) > $1.result
+else
+  echo -1 > $1.result
+fi
+

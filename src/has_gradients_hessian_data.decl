@@ -1,0 +1,97 @@
+/* -*- Mode: C++; indent-tabs-mode: nil; c-basic-offset: 3; tab-width: 3 -*- */
+/*
+ * This file is part of ARL Discrete Chemical Compound Space Optimization (ARL DCCSO) project.
+ *
+ * ARL DCSSO constitutes a work of the United States Government and is not
+ * subject to domestic copyright protection under 17 USC Sec. 105.
+ * Release authorized by the US Army Research Laboratory
+ *
+ * To the extent possible under law, the author(s) have dedicated all copyright
+ * and related and neighboring rights to this software to the public domain
+ * worldwide. This software is distributed without any warranty.
+ *
+ * You should have received a copy of the CC0 Public Domain Dedication along
+ * with this software. If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
+ *
+ */
+
+/*! @addtogroup DOChemS Discrete Optimization of Chemical Space */
+/*! \File has_gradients_hessians_data.decl */
+/*! \brief Abstract optimization class for Concepts::has_gradients and Concepts::has_hessians concepts.
+ */
+/*!@{*/
+#ifndef _HAS_GRADIENTS_HESSIANS_DECL
+#define _HAS_GRADIENTS_HESSIANS_DECL
+
+#include <BCR_CPP_LA/refcount.decl>
+#include <BCR_CPP_LA/mat_sym_full.decl>
+#include "typedefs.hh"
+#include <string>
+
+using namespace linear_algebra;
+
+//! Abstract class for discrete optimizations.
+template<class X>
+class has_gradients_data : public X
+{
+private:
+protected:
+
+public:
+
+   using X::get_value;
+   using X::get_bits;
+   using X::get_space_size;
+
+   has_gradients_data(): X()
+   {};
+
+   has_gradients_data(const has_gradients_data& a):
+      X((X) a)
+   {};
+
+   has_gradients_data& operator=(const has_gradients_data& d);
+
+   //! compute the difference between numbers n1 and n2.
+   void diff(ulong n1, ulong n2, valerg& r) const;
+
+   //! Gradient computation
+   refvector<valerg> gradient(const ulong i) const;
+   //! Gradient computation
+   refvector<valerg>& gradient(const ulong i, refvector<valerg>& v) const;
+};
+
+//! Abstract class for discrete optimizations.
+template<class X>
+class has_hessians_data : public X
+{
+private:
+protected:
+public:
+
+   using X::get_value;
+   using X::compute_property;
+   using X::get_bits;
+   using X::get_space_size;
+
+   const string &Name_r;
+
+   has_hessians_data(): X(),Name_r(X::Name)
+   {};
+
+   has_hessians_data(const has_hessians_data& a):
+      X(a),
+      Name_r(X::Name)
+   {};
+
+   has_hessians_data& operator=(const has_hessians_data& d);
+
+   //! Hessian computation
+   mat_sym_full<valerg> hessian(ulong i) const;
+   //! Hessian computation
+   mat_sym_full<valerg>& hessian(ulong i, mat_sym_full<valerg>& H) const;
+};
+
+
+#endif
+/*! @}*/

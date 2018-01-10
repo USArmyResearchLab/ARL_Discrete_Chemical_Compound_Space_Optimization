@@ -36,9 +36,9 @@ To compile the debug version of the code, do the same in the `Debug` subdirector
 The debug binary will be called `DiscreteCCSOpt-d`
 
 # Documentation
-In order to generate the documentation use doxygen in the root directory:
-`doxygen`
-The documentation will then reside in the html/ and latex/ directories.
+In order to generate the documentation use doxygen in the Build subdirectory:
+`make docs`
+The documentation will then reside in the Build/html/ and Build/latex/ directories.
 
 
 # Usage
@@ -49,4 +49,3 @@ Basic usage is:
 The program will then prompt you for an input file. For specifics on the
 input file format and other requirements, please refer to the documentation or 
 the source files directly (which also include the documentation).
-# ARL_Discrete_Chemical_Compound_Space_Optimization

@@ -1,0 +1,3 @@
+ grep "modulus" $* | grep -v Predicted | awk '{print $4}'| tail -1 
+
+

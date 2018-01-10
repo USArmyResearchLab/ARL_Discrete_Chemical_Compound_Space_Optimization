@@ -1,0 +1,3 @@
+ grep "Energy=" $* | grep -v Predicted | awk '{print $2}'| tail -1 
+
+

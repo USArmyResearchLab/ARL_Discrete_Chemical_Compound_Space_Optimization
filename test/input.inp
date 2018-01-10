@@ -1,0 +1,50 @@
+ChemGroup(
+  (
+   Z(
+    (C, -3, 0(), -2, 0 (), -1, 0())
+    (H,  0,1.1(), -3, 109(), -2, 180())
+    (H,  0,1.1(),  1, 109(), -3, 120())
+   )
+   ReturnConnector()
+   Connector(
+    (
+      (0,1,2)
+      (0.74, 0, 0)
+      (0   , 109.47, 0)
+      (0   ,   0   , 120)
+      ( 0, 0, 1)
+      ( 0, 0, 1)
+      ( 0, 0, 1)
+      ( 134.0, 120.9, 7, -4)
+    )
+   )
+   allowed_groups(
+    (1,2,3)
+   )
+  )
+  (
+   Z(
+    ( F, -3, 0.54(), -2, 0(), -1, 0())
+   )
+   ReturnConnector()
+   Connector()
+   allowed_groups()
+  )
+  (
+   Z(
+    ( Cl, -3, 0.54(), -2, 0(), -1, 0())
+   )
+   ReturnConnector()
+   Connector()
+   allowed_groups()
+  )
+  (
+   Z(
+    ( Br, -3, 0.54(), -2, 0(), -1, 0())
+   )
+   ReturnConnector()
+   Connector()
+   allowed_groups()
+  )
+ )
+)
