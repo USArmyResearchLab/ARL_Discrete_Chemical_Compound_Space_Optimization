@@ -1,5 +1,5 @@
 {
-    "version": "1.0.0",
+    "version": "2.0.0",
     "agency": "DOD",
     "measurementType": {
         "method": "other",
@@ -11,7 +11,7 @@
             "organization": "US Army Research Laboratory",
             "description": "ARL DCCSO provides a framework for (constrained) optimization of molecular properties over a combinatorial set of molecules. ",
             "tags": [
-                "policy"
+                "constrained optimization", "chemistry"
             ],
             "contact": {
                 "email": "berend.c.rinderspacher.civ@mail.mil",
