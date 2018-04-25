@@ -1,10 +1,9 @@
-################################################################################
-# Automatically-generated file. Do not edit!
-################################################################################
-
 -include ../makefile.init
 
 RM := rm -rf
+
+#CXX := # uncomment and add a specific compiler path
+BCRCPPLAROOT := /path/to/#BCR_CPP_LA should be found in this directory
 
 # All of the sources participating in the build are defined here
 -include sources.mk
@@ -44,7 +43,7 @@ all: DiscreteCCSOpt.d
 DiscreteCCSOpt.d: $(DOBJS) $(USER_DOBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	/usr/local/bin/g++ -L/usr/local/lib -o "DiscreteCCSOpt.d" -g $(DOBJS) $(USER_DOBJS) $(LIBS)
+	$(CXX) -L/usr/local/lib -o "DiscreteCCSOpt.d" -g $(DOBJS) $(USER_DOBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
