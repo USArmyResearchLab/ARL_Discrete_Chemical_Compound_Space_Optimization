@@ -6,6 +6,8 @@
 
 RM := rm -rf
 
+CXX := /opt/local/bin/g++
+
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include src/subdir.mk
@@ -44,7 +46,7 @@ all: DiscreteCCSOpt
 DiscreteCCSOpt: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	/opt/local/bin/g++ -L/usr/local/lib -o "DiscreteCCSOpt" $(OBJS) $(USER_OBJS) $(LIBS)
+	$(CXX) -L/usr/local/lib -o "DiscreteCCSOpt" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

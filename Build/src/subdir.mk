@@ -61,7 +61,7 @@ DOBJS += \
 src/%.o: ../src/%.cc
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	/usr/local/bin/g++ -I/usr/local/include -fpermissive -I/path/to/BCR_CPP_LA -I.. -I../include -I../src -I"../" -O3 -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	$(CXX) -fpermissive -I$(HOME)/projects/tmp -I.. -I../include -I../src -I"../" -O3 -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
