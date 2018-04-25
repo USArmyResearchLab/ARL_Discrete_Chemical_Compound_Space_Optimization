@@ -1,12 +1,9 @@
-################################################################################
-# Automatically-generated file. Do not edit!
-################################################################################
-
 -include ../makefile.init
 
 RM := rm -rf
 
-CXX := /opt/local/bin/g++
+#CXX := # uncomment and add a specific compiler path
+BCRCPPLAROOT := /path/to/#BCR_CPP_LA should be found in this directory
 
 # All of the sources participating in the build are defined here
 -include sources.mk
