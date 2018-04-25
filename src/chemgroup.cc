@@ -95,19 +95,21 @@ ChemGroup::ChemGroup(istream& in):
               Substituent_Groups_r(Substituent_Groups)
 {
    try {
+      string interimstring;
       stringstream s;
       stringstream o;
       while(!in.eof())
       {
-         in >> skipws >> s;
-         // This is to allow comments
+         in >> skipws >> interimstring;
+         s << interimstring;
+         // This is to allow a single comment
          if (s.peek() == '#') {
             char c = s.get();
             c = s.get();
             while(c!='\n'&& c!='#' && s.good())
                c = s.get();
          }
-         o << s;
+         o << s.str();
       }
       cout << o.str() << endl;
       ChemGroup a(o);

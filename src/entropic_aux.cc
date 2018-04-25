@@ -23,6 +23,7 @@
 #include <iostream>
 #include <cmath>
 #include <BCR_CPP_LA/linear_algebra.h>
+#include <entropic_aux.hh>
 
 using namespace std;
 using namespace linear_algebra;
