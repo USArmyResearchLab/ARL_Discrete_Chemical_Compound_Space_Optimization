@@ -40,7 +40,7 @@ endif
 all: DiscreteCCSOpt.d
 
 # Tool invocations
-DiscreteCCSOpt.d: $(DOBJS) $(USER_DOBJS)
+DiscreteCCSOpt.d: $(OBJS) $(USER_DOBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
 	$(CXX) -L/usr/local/lib -o "DiscreteCCSOpt.d" -g $(DOBJS) $(USER_DOBJS) $(LIBS)
