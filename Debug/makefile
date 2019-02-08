@@ -43,7 +43,7 @@ all: DiscreteCCSOpt.d
 DiscreteCCSOpt.d: $(OBJS) $(USER_DOBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	$(CXX) -L/usr/local/lib -o "DiscreteCCSOpt.d" -g $(DOBJS) $(USER_DOBJS) $(LIBS)
+	$(CXX) -L/usr/local/lib -o "DiscreteCCSOpt.d" -g $(OBJS) $(USER_DOBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
