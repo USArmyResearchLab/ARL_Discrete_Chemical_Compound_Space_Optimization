@@ -49,3 +49,7 @@ Basic usage is:
 The program will then prompt you for an input file. For specifics on the
 input file format and other requirements, please refer to the documentation or 
 the source files directly (which also include the documentation).
+
+# Citation
+
+If you find ARL DCCSO useful, please cite its [![DOI](https://zenodo.org/badge/116173746.svg)](https://zenodo.org/badge/latestdoi/116173746).
